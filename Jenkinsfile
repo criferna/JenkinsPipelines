@@ -5,8 +5,8 @@ pipeline {
         stage('Checkout Codebase') {
             steps {
             checkout scm: [$class: 'GitSCM',
-            userRemoteConfigs: [[credentialsId: 'git-jenking-ssh',url: 'git@github.com:criferna/EjemploCurso.git']],
-            branches: [name: 'main']]
+            branches: [[name: '*/main']],
+            userRemoteConfigs: [[credentialsId: 'git-jenking-ssh',url: 'git@github.com:criferna/EjemploCurso.git']]]
             }
         }
         stage('Build') {
