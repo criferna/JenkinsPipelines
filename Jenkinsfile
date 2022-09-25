@@ -11,6 +11,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                chmod +x test.sh
                 sh './test.sh'
 
             }
