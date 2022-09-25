@@ -5,19 +5,19 @@ pipeline {
         stage('Checkout Codebase') {
             steps {
             checkout scm: [$class: 'GitSCM',
-            userRemoteConfigs: [[credentialsId: 'github-ssh-key',url: 'git@github.com:mnorm88/multithreading-example-1.git']]]
+            userRemoteConfigs: [[credentialsId: 'git-jenking-ssh',url: 'git@github.com:criferna/EjemploCurso.git']]]
 
             }
         }
         stage('Build') {
             steps {
-                sh 'gcc mt-example-0.c -lpthread'
+                bash './test.sh'
 
             }
         }
         stage('Test') {
             steps {
-                sh './a.out'
+                sh './test.sh'
             }
         }
         stage('Deploy') {
