@@ -11,9 +11,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                chmod +x test.sh
+                chmod +x 'test.sh'
                 sh './test.sh'
-
             }
         }
         stage('Test') {
