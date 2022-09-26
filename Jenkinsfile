@@ -2,26 +2,27 @@ pipeline {
     agent any
     stages {
 
-        stage('Checkout Codebase') {
+        stage('Descarga del código') {
             steps {
             checkout scm: [$class: 'GitSCM',
             branches: [[name: '*/main']],
             userRemoteConfigs: [[credentialsId: 'git-jenking-ssh',url: 'git@github.com:criferna/EjemploCurso.git']]]
             }
         }
-        stage('Build') {
+        stage('Compilar') {
             steps {
                 sh 'chmod +x test.sh'
                 sh './test.sh'
             }
         }
-        stage('Test') {
+        stage('Probar') {
             steps {
                 sh './test.sh'
             }
         }
-        stage('Deploy') {
+        stage('Prueba exitosa?') {
             steps {
+                input "¿Se realizó la prueba exitosamente?"
                 sh 'echo Done!'
             }
         }
