@@ -12,12 +12,11 @@ pipeline {
         stage('Compilar') {
             steps {
                 sh 'chmod +x test.sh'
-                sh './test.sh'
             }
         }
         stage('Probar') {
             steps {
-                sh './test.sh'
+                ./test.sh
             }
         }
         stage('Prueba exitosa?') {
