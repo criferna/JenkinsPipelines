@@ -23,6 +23,7 @@ pipeline {
         stage('Prueba exitosa?') {
             steps {
                 input "¿Se realizó la prueba exitosamente?"
+                sh 'echo "git commit -am Push a producción"'
                 sh 'echo Done!'
             }
         }
