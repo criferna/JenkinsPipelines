@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Probar') {
             steps {
-                ./test.sh
+                sh './test.sh'
             }
         }
         stage('Prueba exitosa?') {
