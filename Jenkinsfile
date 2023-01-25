@@ -6,7 +6,7 @@ pipeline {
             steps {
             checkout scm: [$class: 'GitSCM',
             branches: [[name: '*/main']],
-            userRemoteConfigs: [[credentialsId: 'git-jenking-ssh',url: 'git@github.com:criferna/EjemploCurso.git']]]
+            userRemoteConfigs: [[url: 'https://github.com/criferna/EjemploCurso.git']]]
             }
         }
         stage('Compilar') {
